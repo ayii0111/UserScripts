@@ -16,7 +16,7 @@ recordLastCmdPost() {
     lastExistCmd=$lastCmd
   }
   lastCmd=$currentCmd
-  currentCmd=""
+  # currentCmd=""
 }
 
 # 註冊 hooks

@@ -13,7 +13,7 @@ export default antfu()" > eslint.config.mjs
 echo '{
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
 
   // Auto fix
   "editor.codeActionsOnSave": {

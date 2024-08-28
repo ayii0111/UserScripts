@@ -5,7 +5,9 @@
 recordLastStatusPost() {
   typeset -g lastStatus
   lastStatus=$?
-  echo "✞✞✞✞"
+  echo "✞✞✞✞ $(date '+%H:%M:%S %Y-%m-%d')"
+
+
 }
 
 autoload -U add-zsh-hook

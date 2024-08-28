@@ -83,6 +83,13 @@ export default antfu(
       'vue/attribute-hyphenation': 0, // 標籤屬性需使用「連字號」連結
       'vue/require-toggle-inside-transition': 0, // <transition> 的子元素需要有 v-if 或 v-show，隔層就不行（太嚴格）
       'unused-imports/no-unused-vars': 0, // 變數未使用
+      'no-empty': 0, // if {  } 內為空
+      'vue/html-self-closing': 0, // 不檢查 <自定標籤 /> 的代碼
+      'no-prototype-builtins': 0, //  解除 obj.hasOwnProperty() 的禁用
+      'ts/consistent-type-definitions': 0, // 能使用 interface 就不要用 type
+      'curly': ['error', 'multi-line'], // 這個要設定要加大括號，才能與 if 擠一行（莫名其妙）
+      'style/max-statements-per-line': 0, // 限制每行的 statement 數量
+      'no-unused-expressions': 0,  // 可以僅使用「條件式 ? true: null 而不會報錯」
     },
   },
 )" > eslint.config.mjs

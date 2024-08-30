@@ -18,12 +18,14 @@
 
 
 
+
+# 下面添加 2>/dev/null 是為了避免產生警告訊息
 if (( $#* > 2 )) {
   # 先篩選參數數量大於 2的情況
   # 會將最後參數，當作「目錄路徑」，故會自動建立該目錄
   local args=($*)
   local argFinal=$args[$#*]
-  mkdir -p "$argFinal"
+  mkdir -p "$argFinal" 2>/dev/null
   /bin/cp -r $*
   unset args argFinal
   return 0
@@ -31,31 +33,33 @@ if (( $#* > 2 )) {
 
 
 if [[ -d $1 ]] {
+
   # 篩選第一個參數為目錄的情況
   # 若兩個參數末端路徑同名，則直接複製過去
   # 若不同名，則將第一個參數目錄，複製到第二個參數目錄下
-if [[ ${1:t} == ${2:t} ]] {
-  local dir=${2:h}
-  mkdir -p "$dir"
-  /bin/cp -r $1 $dir
-  unset dir
-  return 0
-}
-  mkdir -p "$2"
+  if [[ ${1:t} == ${2:t} ]] {
+    local dir=${2:h}
+    mkdir -p "$dir" 2>/dev/null
+    /bin/cp -r $1 $dir
+    unset dir
+    return 0
+  }
+  mkdir -p "$2" 2>/dev/null
   /bin/cp -r $1 $2
   return 0
 }
+
 
 
 # 最終篩選剩餘的是，兩個參數、「第一個參數為檔案」的情況
 # 若兩個參數末端路徑同名，則直接複製過去
 # 若不同名，則將第一個參數檔案，複製到第二個參數目錄下
 if [[ ${1:t} == ${2:t} ]] {
-    local dir=${2:h}
-    mkdir -p "$dir"
-    unset dir
+  local dir=${2:h}
+  mkdir -p "$dir" 2>/dev/null
+  unset dir
 } else {
-    mkdir -p "$2"
+  mkdir -p "$2" 2>/dev/null
 }
 
 /bin/cp -r $*

@@ -2,6 +2,7 @@
 
 # 未測試
 # vcf 腳本
+# vue-clerk&firebase
 # 快速安裝配置 clerk 與 firebase
 # 並整合兩者的第三方登入後，生成一個 <LoginBtn/ >元件以供使用
 

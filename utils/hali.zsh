@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 # 別名 hali
+# hash_alignment
 # 對齊 #字元
 # 找時間研究他 awk 的語法
 

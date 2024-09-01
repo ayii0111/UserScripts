@@ -1,6 +1,7 @@
 #! /bin/zsh
 
 # 別名 vcomp
+# unplugin-component
 # 安裝並配置 unplugin-vue-components
 npm i unplugin-vue-components -D
 

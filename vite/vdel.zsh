@@ -1,6 +1,7 @@
 #! /bin/zsh
 
 # 別名 v-
+# delete-vite-style
 # 刪除所有初始樣式，該腳本跟 bootstrap 擇一執行，不然會出錯
 
 # 刪除 App.vue style標籤，並清除 <template> 不要的元件、標籤、圖片

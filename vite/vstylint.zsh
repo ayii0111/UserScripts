@@ -2,6 +2,7 @@
 
 
 # 別名 vstylint
+# stylelint
 npm i -D stylelint \
 stylelint-config-standard-scss \
 stylelint-config-recommended-vue \

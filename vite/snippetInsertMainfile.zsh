@@ -1,9 +1,11 @@
 #! /bin/zsh
 
-# snippetInsertMainfile 函式
+# 別名 snippetInsertMainfile: 將代碼片段插入到 main 檔
 # snippetInsertMainfile <import代碼段> <app.use代碼段>
 local file=$(getMatchedFile "./src/main")
-if [[ ! $file ]] return 1
+if [[ ! $file ]]; then
+  return 1
+fi
 
 local importSnippet=$(echo "$1" | gsed ':a;N;$!ba;s/\n/\\n/g')
 local injectSnippet=$(echo "$2" | gsed ':a;N;$!ba;s/\n/\\n/g')

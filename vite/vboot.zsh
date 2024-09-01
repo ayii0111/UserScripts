@@ -1,6 +1,7 @@
 #! /bin/zsh
 
 # 別名 vboot
+# bootstrap
 
 npm i bootstrap @popperjs/core
 

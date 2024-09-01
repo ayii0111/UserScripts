@@ -1,6 +1,7 @@
 #! /bin/zsh
 
 # 別名 conrm
+# conda_remove_env
 # 將當前專案目錄環境，刪除並從內管名單中移除
 
 local env_file="$HOME/UserConfig/conda_env"

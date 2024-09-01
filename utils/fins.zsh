@@ -1,6 +1,7 @@
 #! /bin/zsh
 
 # 別名 fins
+# find_installed
 # 用來尋找安裝套件的蹤跡
 # 找時間研究他 awk 的語法
 

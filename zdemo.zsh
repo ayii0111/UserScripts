@@ -1,25 +1,34 @@
-echo "1,2,3,4,5" | awk '{
-    num = split($0, array, ","); # 使用逗號作為分隔符將字符串拆分
-    for (i = 1; i <= num; i++) {
-        print "array[" i "] = " array[i]; # 按照順序輸出拆分後的每個元素
-    }
-    print "總共數量 length(array) : " length(array);
-    print "總共數量 num : " num;
-}'
+# 定義 ncuf 別名
 
-# array[1] = 1
-# array[2] = 2
-# array[3] = 3
-# array[4] = 4
-# array[5] = 5
-# 總共數量 length(array) : 5
-# 總共數量 num : 5
+local isDevEnv=false
+local pkgName
 
-# 若改為 for (i in array) 迭代會無序，要小心
-# array[2] = 2
-# array[3] = 3
-# array[4] = 4
-# array[5] = 5
-# array[1] = 1
-# 總共數量 length(array) : 5
-# 總共數量 num : 5
+# 解析選項
+while getopts "D" opt; do
+  case "$opt" in
+    D) isDevEnv=true ;;
+    *) echo "Usage: ncuf [-D] <package>" && return 1 ;;
+  esac
+done
+
+shift $((OPTIND - 1))
+pkgName=$1
+
+if [[ -z $pkgName ]]; then
+  echo "請提供要安裝的套件名稱"
+  return 1
+fi
+
+# 根據選項決定命令參數
+if $isDevEnv; then
+  echo "正在開發環境安裝..."
+  npm install --save-dev --force "$pkgName"
+else
+  echo "正在開發與產品環境安裝..."
+  npm install --force "$pkgName"
+fi
+
+# 升級與降版處理
+ncu -d "$pkgName"
+ncu -u "$pkgName"
+npm install

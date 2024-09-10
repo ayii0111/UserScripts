@@ -18,6 +18,6 @@ rules: {
 
 rules=$(echo "$rules" | gsed ':a;N;$!ba;s/\n/\\n/g')
 
-gsed -i "/module.exports/ s|$|$rules|" ./.eslintrc.cjs
+gsed -i "/module.exports/ s|$|$rules|" ./.eslintrc.cjs 2>/dev/null
 
 unset rules

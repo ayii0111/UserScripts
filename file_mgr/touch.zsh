@@ -1,5 +1,6 @@
 #! /bin/zsh
 
+# 別名 touch: 改良版，可以自動生成路徑目錄
 local _path="$*"
 
 # 此處不直接使用 touch，是為了避免與 alias 衝突而造成無限循環調用

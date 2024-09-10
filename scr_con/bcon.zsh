@@ -1,6 +1,6 @@
 #! /bin/zsh
 
-# 別名 bcon
+# 別名 bcon: 將設定檔備份到 UserConfig 資料夾
 # 全稱 backup config
 # 設定檔的備份，包含 vscode、snippets、.zshrc骨幹
 
@@ -14,8 +14,8 @@ cp $HOME/.zshrc $basePath/zshrc/.zshrc
 # vsCode
 cp "$HOME/Library/Application Support/Code/User/settings.json" $basePath/vsCode/
 cp "$HOME/Library/Application Support/Code/User/keybindings.json" $basePath/vsCode/
-cp $HOME/Library/Application\ Support/Code/User/snippets  $basePath/vsCode/snippets
-code --list-extensions > $basePath/vsCode/extensionsList
+cp $HOME/Library/Application\ Support/Code/User/snippets $basePath/vsCode/snippets
+code --list-extensions >$basePath/vsCode/extensionsList
 
 # config
 cp $HOME/.tmux.conf $basePath/config

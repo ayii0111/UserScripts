@@ -1,6 +1,6 @@
 #! /bin/zsh
 
-# 別名 fins
+# 別名 fins: find 的改良版
 # find_installed
 # 用來尋找安裝套件的蹤跡
 # 找時間研究他 awk 的語法
@@ -13,19 +13,17 @@ echo -ne '\e[?25l'
 revolver start '搜尋中...'
 
 # 預先排除掉 /System/Volumes 路徑的搜尋結果
-local F=`fd -H -t"$3" "$1" "$2" | grep -v /System/Volumes`
+local F=$(fd -H -t"$3" "$1" "$2" | grep -v /System/Volumes)
 
 # 先去掉文字最後面的 /
 F=${F%/}
 # 在將每一行後面的 / 去除
 F=${F//\/$'\n'/'\n'}
 
-
 # 恢復光標閃爍
 echo -ne '\e[?25h'
 # 結束搜尋中的特效
 revolver stop
-
 
 # awk -F/ 代表每行輸入時，以 / 作為分隔符來切分
 # -v 內變數=外變數  可以將 awk 外部變數匯入內部變數中

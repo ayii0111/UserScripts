@@ -1,5 +1,5 @@
 # 安裝
-npm i -D eslint @antfu/eslint-config eslint-plugin-format
+npm i -D eslint@^9.10.0 @antfu/eslint-config eslint-plugin-format
 
 # 將預設的 eslint 改變格式
 # 整個預設檔刪除，建立新的
@@ -7,8 +7,7 @@ rm .eslintrc.cjs
 
 echo "import antfu from '@antfu/eslint-config'
 
-export default antfu()" > eslint.config.mjs
-
+export default antfu()" >eslint.config.mjs
 
 echo '{
   // Disable the default formatter, use eslint instead
@@ -59,8 +58,7 @@ echo '{
     "pcss",
     "postcss"
   ]
-}' > .vscode/settings.json
-
+}' >.vscode/settings.json
 
 # 覆蓋 eslint.config.mjs 檔的內容
 echo "// eslint.config.js
@@ -92,8 +90,7 @@ export default antfu(
       'no-unused-expressions': 0,  // 可以僅使用「條件式 ? true: null 而不會報錯」
     },
   },
-)" > eslint.config.mjs
-
+)" >eslint.config.mjs
 
 # 操作 vscode 執行 reload 指令
 osascript <<EOF

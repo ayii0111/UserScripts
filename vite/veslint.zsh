@@ -1,6 +1,9 @@
 # 安裝
 npm i -D eslint @antfu/eslint-config eslint-plugin-format
 
+# 若安裝報錯要退出
+[[ $? != 0 ]] && return 1
+
 # 將預設的 eslint 改變格式
 # 整個預設檔刪除，建立新的
 rm .eslintrc.cjs

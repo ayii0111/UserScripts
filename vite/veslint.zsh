@@ -1,5 +1,5 @@
 # 安裝
-npm i -D eslint@^9.10.0 @antfu/eslint-config eslint-plugin-format
+npm i -D eslint @antfu/eslint-config eslint-plugin-format
 
 # 將預設的 eslint 改變格式
 # 整個預設檔刪除，建立新的

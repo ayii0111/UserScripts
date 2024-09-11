@@ -4,8 +4,9 @@
 # 讓沒有參數的指令，自動暫存整個專案
 
 # 檢驗參數存是否存在
-if (( $+1 )) {
+if [[ $1 ]]; then
+
   git add $1
-} else {
-  git add --all
-}
+fi
+
+git add --all

@@ -1,16 +1,10 @@
 # UserScripts
-自訂的一些腳本，適用環境為 MacOS、zsh
-<br>
-<br>
-<br>
 
-## 依賴軟件
+（指令腳本環境為 zsh）
 
-*homebrew、fd、molovo/revolver/revolver*
-
-- **homebrew**：為 brew_pack_install 的依賴
-- **fd、molovo/revolver/revolver**：為 find_installed.zsh 的依賴
-
-> 依賴安裝：直接 brew install 加軟件名稱就能安裝
->
-<br>
+- MacOS 有關的指令
+- Vite 開發環境有關的指令
+- 原生指令的改良版指令
+- 檔案管理有關的自定指令
+- zsh 環境的鉤子配置
+- 一些 ts 函式的儲藏

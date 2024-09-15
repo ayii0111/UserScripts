@@ -3,38 +3,35 @@
 # gti腳本
 # 用來快速建立 git 測試環境目錄
 
-if [[ ! $(pwd) == $HOME ]] {
+# 應在家目錄中執行，避免在其他專案中，亂建立測試目錄
+if [[ ! $(pwd) == $HOME ]]; then
   echo "error: 當前目錄非用戶家目錄" >&2
   return 1
-}
+fi
 
 mkdir git-test
 cd git-test
 git init
-echo "" > README.md
-git add .; git commit -m "init"
+echo "" >README.md
+git add .
+git commit -m "init"
 
-
-
-# gtcs 腳本
-# 為 git_test_cases 的簡稱
-# 該腳本依賴了大量的自定別名
-
-# 建立與端庫
+# 建立遠端庫
 gh repo create --private --source=. --remote=origin --push
 
 # 在本地建立兩條分支
+# b代表分支，l代表本地分支
 bl2() {
-  # 將先 gtc 函式所產生的動態變數歸 0
-  gtc --reset
-  gtc 6
+
+  gtc --reset # 將先 gtc 函式所產生的動態變數歸 0
+  gtc 6       # 建立 6 個 commit
 
   gch HEAD~3
-  gchb hotfix
+  gcla hotfix
+  gch hotfix
   gtc --reset
   gtc 4
 }
-
 
 # 在遠端建立兩個分支
 br2() {
@@ -44,7 +41,8 @@ br2() {
   gp
 
   gch HEAD~3
-  gchb hotfix
+  gbla hotfix
+  gch hotfix
   gtc --reset
   gtc 4
   gp
@@ -66,6 +64,6 @@ flfc() {
   gp
 
   gcbt HEAD^
-  echo "衝突代碼" > main_file-3
+  echo "衝突代碼" >main_file-3
   git add . && git commit -m "main: commit 3"
 }

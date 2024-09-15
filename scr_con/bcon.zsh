@@ -11,11 +11,11 @@ local basePath=$HOME/UserConfig
 # zshrc
 cp $HOME/.zshrc $basePath/zshrc/.zshrc
 
-# vsCode
-cp "$HOME/Library/Application Support/Code/User/settings.json" $basePath/vsCode/
-cp "$HOME/Library/Application Support/Code/User/keybindings.json" $basePath/vsCode/
-cp $HOME/Library/Application\ Support/Code/User/snippets $basePath/vsCode/snippets
-code --list-extensions >$basePath/vsCode/extensionsList
+# vsCode(Cursor)
+cp "$HOME/Library/Application Support/Cursor/User/settings.json" $basePath/vsCode/
+cp "$HOME/Library/Application Support/Cursor/User/keybindings.json" $basePath/vsCode/
+cp $HOME/Library/Application\ Support/Cursor/User/snippets $basePath/vsCode/snippets
+cursor --list-extensions >$basePath/vsCode/extensionsList
 
 # config
 cp $HOME/.tmux.conf $basePath/config

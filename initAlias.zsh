@@ -3,7 +3,7 @@
 # 指定忽略的多個目錄（用空格分隔）
 ignoreDirs=(~/UserScripts/zsh_hook)
 
-# 指定忽略的多個檔案
+# 指定忽略的多個檔案（並非輸入路徑）
 ignoreFiles=(initAlias.zsh env.zsh)
 
 # 動態載入目錄中的所有腳本

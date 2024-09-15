@@ -97,7 +97,7 @@ export default antfu(
 
 # 操作 vscode 執行 reload 指令
 osascript <<EOF
-tell application "Visual Studio Code"
+tell application "Cursor"
   activate
   delay 0.5
   tell application "System Events"

@@ -1,26 +1,23 @@
 #! /bin/zsh
-
-typeset -g currentCmd
-typeset -g lastCmd
-typeset -g lastExistCmd
-
-recordLastCmdPre() {
+_recordLastCmdPre() {
 
   # 監聽儲存發送時的指令
   currentCmd=$1
 }
 
-recordLastCmdPost() {
-
-  if [[ $currentCmd ]]; then
-    lastExistCmd=$lastCmd
-  fi
-
+_recordLastCmdPost() {
   lastCmd=$currentCmd
-  # currentCmd=""
+
+  if (($lastStatus == 0)) && [[ $currentCmd ]]; then
+    lastSuccessCmd=$currentCmd
+  fi
+  if (($lastStatus != 0)) && [[ $currentCmd ]]; then
+    lastFailCmd=$currentCmd
+  fi
+  return $lastStatus
 }
 
 # 註冊 hooks
 autoload -U add-zsh-hook
-add-zsh-hook preexec recordLastCmdPre
-add-zsh-hook precmd recordLastCmdPost
+add-zsh-hook preexec _recordLastCmdPre
+add-zsh-hook precmd _recordLastCmdPost

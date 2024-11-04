@@ -9,6 +9,28 @@
 # 會迭代 目錄下，特別格式檔名的別名，並將生成的
 
 # 想對一些 v* 腳本建立驗證，以確保重複執行破壞了環境配置
+#! /bin/zsh
 
+# cb='echo $1
+# echo hello
+# '
 
+# local arr=(11 22)
+# local arr
 
+# typeset arr=(11 22)
+# typeset arr
+
+# local arr=(11 22)
+# local arr
+# arr=( 11 22 )
+# 二次宣告而不儲存時，會產生輸出效果，會導致函式回傳值的污染
+
+# local arr2=(11 22)
+# local arr2=(11 22)
+
+# fn() {
+#   echo 函式內部
+#   local arr
+# }
+# fn

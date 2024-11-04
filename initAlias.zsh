@@ -4,7 +4,7 @@
 # 腳本目錄中的所有腳本都自動生成別名
 # 可以指定要忽略的檔案 or 目錄
 
-local ignoreDirs=("zsh_hook" "zle_tools_XXX" "testDir")
+local ignoreDirs=("zsh_hook" "zle_tools_XXX" "testDir" "ztest")
 local ignoreFiles=("initAlias.zsh" "env.zsh" "re.zsh")
 
 # 定義將列表轉換為正則表達式的函式

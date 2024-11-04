@@ -14,7 +14,7 @@ cp $HOME/.zshrc $basePath/zshrc/.zshrc
 # vsCode(Cursor)
 cp "$HOME/Library/Application Support/Cursor/User/settings.json" $basePath/vsCode/
 cp "$HOME/Library/Application Support/Cursor/User/keybindings.json" $basePath/vsCode/
-cp $HOME/Library/Application\ Support/Cursor/User/snippets $basePath/vsCode/snippets
+cp "$HOME/Library/Application Support/Cursor/User/snippets" $basePath/vsCode/snippets
 cursor --list-extensions >$basePath/vsCode/extensionsList
 
 # config

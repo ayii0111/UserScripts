@@ -15,7 +15,7 @@ app.provide('axios', app.config.globalProperties.axios)"
   importSnippet=$(echo "$importSnippet" | gsed ':a;N;$!ba;s/\n/\\n/g')
   injectSnippet=$(echo "$injectSnippet" | gsed ':a;N;$!ba;s/\n/\\n/g')
 
-  local file
+  local file=""
   file=$(matchFile "./src/main") || return 1
 
   gsed -i "/createApp(App)/,\$! {/^$/d}

@@ -15,13 +15,19 @@ cp $HOME/.zshrc $basePath/zshrc/.zshrc
 cp "$HOME/Library/Application Support/Cursor/User/settings.json" $basePath/vsCode/
 cp "$HOME/Library/Application Support/Cursor/User/keybindings.json" $basePath/vsCode/
 cp "$HOME/Library/Application Support/Cursor/User/snippets" $basePath/vsCode/snippets
-cursor --list-extensions >$basePath/vsCode/extensionsList
+
+# vscode 擴展
+code --list-extensions >$basePath/vsCode/extensionsList
+
+# 輸入法初始配置
+cp "$HOME/Library/Rime/bopomo_onion.schema.yaml" $basePath/Rime/
+cp "$HOME/Library/Rime/default.custom.yaml" $basePath/Rime/
 
 # config
-cp $HOME/.tmux.conf $basePath/config
-cp $HOME/.config/yazi $basePath/config/yazi
-cp $HOME/.config/starship.toml $basePath/config
-cp $HOME/.config/zellij/config.kdl $basePath/config/zellij/config.kdl
-cp $HOME/Library/Containers/org.atelierInmu.inputmethod.vChewing/Data/Library/Application\ Support/vChewing $basePath/config/vChewing
+# cp $HOME/.tmux.conf $basePath/config
+# cp $HOME/.config/yazi $basePath/config/yazi
+# cp $HOME/.config/starship.toml $basePath/config
+# cp $HOME/.config/zellij/config.kdl $basePath/config/zellij/config.kdl
+# cp $HOME/Library/Containers/org.atelierInmu.inputmethod.vChewing/Data/Library/Application\ Support/vChewing $basePath/config/vChewing
 
 unset basePath

@@ -4,7 +4,7 @@
 (
 
   [[ ! $+1 ]] && echo "錯誤：請輸入 alias 目錄路徑" >&2 && return 1
-  local file
+  local file=""
   file=$(matchFile "./vite.config") || return 1
 
   mkdir -p $1

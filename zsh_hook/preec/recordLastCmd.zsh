@@ -18,6 +18,5 @@ _recordLastCmdPost() {
 }
 
 # 註冊 hooks
-autoload -U add-zsh-hook
 add-zsh-hook preexec _recordLastCmdPre
 add-zsh-hook precmd _recordLastCmdPost

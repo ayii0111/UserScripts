@@ -16,6 +16,5 @@ _recordLastDirPost() {
 }
 
 # 註冊 hooks
-autoload -U add-zsh-hook
 add-zsh-hook preexec _recordLastDirPre
 add-zsh-hook precmd _recordLastDirPost

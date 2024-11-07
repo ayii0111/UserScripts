@@ -8,5 +8,4 @@ _recordLastStatusPost() {
 
 }
 
-autoload -U add-zsh-hook
 add-zsh-hook precmd _recordLastStatusPost

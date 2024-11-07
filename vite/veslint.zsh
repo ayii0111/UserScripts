@@ -8,8 +8,8 @@
 
   # 將預設的 eslint 改變格式
   # 整個預設檔刪除，建立新的
-  rm eslintrc.cjs
-  rm eslint.config.js
+  rm eslintrc.cjs 2>/dev/null
+  rm eslint.config.js 2>/dev/null
 
   echo "import antfu from '@antfu/eslint-config'
 

@@ -11,7 +11,7 @@
 
   _import=$(echo "$_import" | gsed ':a;N;$!ba;s/\n/\\n/g')
 
-  local file
+  local file=""
   file=$(matchFile "./vite.config") || return 1
 
   # 在 export那一行前面的區塊的空行全部刪除，以及有著 https:的默認註解也刪除

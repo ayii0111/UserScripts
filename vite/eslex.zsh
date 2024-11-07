@@ -5,6 +5,6 @@
 
 sourceFile=./eslint.config.mjs
 targetFile=$HOME/UserConfig/config/eslint.config.mjs
-cfsyn $sourceFile $targetFile
+confsync $sourceFile $targetFile
 
 unset sourceFile targetFile

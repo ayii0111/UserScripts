@@ -1,36 +1,15 @@
-# 要怎麼快速測試
-# 執行測試指令，他會自己到測試目錄中，執行測試檔
-# 而測試檔會自動取得同一目錄下的被測試檔
+local fieldName=$1
+local filePath=$2
 
-# test 指令，當初生成別名時，會自動先識別檔名，匹配的檔明產生的別名比較特殊
+! [[ -f $filePath ]] && echo "Error: 檔案不存在" >&2 && return 1
 
-# 不對，在生成一般腳本別名時，是日常啟動流程
-# 但若是要測試，應該另外執行一個指令，進入測試狀態，此時生成的別名，是額外的處理，與日常啟動流程無關
-# 會迭代 目錄下，特別格式檔名的別名，並將生成的
+local result=$(gawk -v field="$fieldName" '
+    $0 ~ field {
+      lineNum=NR
+      indent=match($0, /[^ ]/) - 1
+      print lineNum, indent
+    }
+  ' $filePath)
 
-# 想對一些 v* 腳本建立驗證，以確保重複執行破壞了環境配置
-#! /bin/zsh
-
-# cb='echo $1
-# echo hello
-# '
-
-# local arr=(11 22)
-# local arr
-
-# typeset arr=(11 22)
-# typeset arr
-
-# local arr=(11 22)
-# local arr
-# arr=( 11 22 )
-# 二次宣告而不儲存時，會產生輸出效果，會導致函式回傳值的污染
-
-# local arr2=(11 22)
-# local arr2=(11 22)
-
-# fn() {
-#   echo 函式內部
-#   local arr
-# }
-# fn
+[[ ! $result ]] && echo "Error: 沒有找到 $fieldName" >&2 && return 1
+echo $result

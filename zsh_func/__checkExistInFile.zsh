@@ -1,7 +1,7 @@
 #! /bin/zsh
 
 # 別名 checkExistInFile： 確認檔案存在關鍵字串
-
+# 似乎 ag 之類的都能取代
 (
   local args=($*)
   local file=$args[$#*] # 最後一個參數是文件

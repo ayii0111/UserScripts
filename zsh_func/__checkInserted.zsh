@@ -1,14 +1,30 @@
-# 別名 checkInserted: 用來確認設定檔，是否已經修改過
-# checkInserted [欄位定位]...<最終目標>
+# 別名 checkExistInFile: 用來確認設定檔，是否已經修改過
+# checkExistInFile [欄位定位]...<最終目標>
 # 檢視的格式包含 json、.zshrc
 
 # 唯一選項:
-# checkInserted <選項>
+# checkExistInFile <選項>
 # 若參數唯一時，做唯一選項檢查
 # 先驗證唯一性，若不符合報錯
 # 若符合，就返回「設定已經修改過了」
 
-# checkInserted [欄位定位]...<最終目標>
+local args=($*)
+local file=$args[$#*]
+# args[$#*]=()
+local fields=($args)
+
+# 檢查參數數量
+(($#args < 2)) && echo "Error: 至少兩個關鍵字 <關鍵字> <檔案> " >&2 && return 1
+[[ ! -f $file ]] && echo "Error: 檔案不存在" >&2 && return 1
+# 唯一選項檢查
+if (($#args == 2)); then
+  # 檢查是否已修改過
+  ! (grep -q "$fields" "$file") && echo 1 && return 0
+  echo 0
+  return 0
+fi
+
+# checkExistInFile [欄位定位]...<最終目標>
 # 先查詢主要欄位，來定位，需取得行數、縮排、該欄位是縱向展開、還是橫向展開、欄位使用的括弧
 
 # 確認欄位名稱:
@@ -25,6 +41,12 @@
 # 並確認當前括號是 [] or {} 往下可以再次確認
 
 # 可以在起訖行數之間，找尋次要欄位，若找不到代表需要插入，若找得到則依照上面規則，縮小查詢範圍
+
+
+
+
+
+
 
 # 最後要確認
 

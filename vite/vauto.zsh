@@ -5,14 +5,14 @@
 checkNoInst unplugin-auto-import || return 1
 npm i -D unplugin-auto-import
 
-local file
+local file=""
 file=$(matchFile "./vite.config") || return 1
 # 在 export那一行前面的區塊的空行全部刪除，以及有著 https:的默認註解也刪除
 # 在 export那一行，的前面插入 import...代碼還有兩個空行
 gsed -i "/^export/,\$! {/^$/d; /https:/d}
 0,/export/{// s|^|import AutoImport from 'unplugin-auto-import/vite'\n\n\n|}; " $file
 
-local AutoImport="
+local auto_import1="
 AutoImport({
   include: [
     /\.[tj]sx?$/,
@@ -48,20 +48,20 @@ AutoImport({
 })"
 
 # 可避免字串變數中的換行，造成 gsed 無法寫入
-AutoImport=$(echo "$AutoImport" | gsed ':a;N;$!ba;s/\n/\\n/g')
+auto_import1=$(echo "$auto_import1" | gsed ':a;N;$!ba;s/\n/\\n/g')
 
-gsed -i "/vue()/ s|vue()|vue(),$AutoImport|" $file
+gsed -i "/vue()/ s|vue()|vue(),$auto_import1|" $file
 
 # tsconfig.app.json 檔添加項目
 gsed -i '/include/,$ { 0,/]/{// s|]|, "./auto-imports.d.ts"]|} }' ./tsconfig.app.json
 
 # .eslintrc.cjs 添加項目
-local auto_import=",
+local auto_import2=",
     './eslintrc-auto-import.json'"
 
-auto_import=$(echo "$auto_import" | gsed ':a;N;$!ba;s/\n/\\n/g')
-gsed -i "/extends*.: /,$ { 0,/'$/ {// s|$|$auto_import|}}" ./.eslintrc.cjs
-
+auto_import2=$(echo "$auto_import2" | gsed ':a;N;$!ba;s/\n/\\n/g')
+gsed -i "/extends*.: /,$ { 0,/'$/ {// s|$|$auto_import2|}}" ./.eslintrc.cjs
+unset auto_import2 file auto_import1
 # 背景執行 相當於 npm run dev 的指令效果
 npx vite --no-open >/dev/null &
 # 等待兩秒來啟動相關配置後，在將背景執行的 npr dev 結束

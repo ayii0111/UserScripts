@@ -7,7 +7,7 @@
 
   npm i @vueuse/core
 
-  local file
+  local file=""
   file=$(matchFile "./vite.config") || return 1
 
   # 暫時僅解除 '@vueuse/core', 這行註解

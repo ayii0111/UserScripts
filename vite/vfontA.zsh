@@ -34,7 +34,7 @@ app.component('FontAwesomeIcon', FontAwesomeIcon)
   # 可避免字串變數中的換行，造成 gsed 無法寫入
   underapp=$(echo "$underapp" | gsed ':a;N;$!ba;s/\n/\\n/g')
 
-  local file
+  local file=""
   file=$(matchFile "./src/main") || return 1
 
   # $import 變數為 createApp(App) 那一行以上要插入的

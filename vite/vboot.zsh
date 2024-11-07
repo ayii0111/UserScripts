@@ -40,7 +40,7 @@ gsed -i "/utilities\"/ s|$node_path|.|" $scss_path/main.scss
 gsed -i "/reboot\"/ s|$node_path|.|" $scss_path/main.scss
 
 # 匯入 bootstrap 的 js 物件
-local file
+local file=""
 file=$(matchFile "./src/main") || return 1
 
 gsed -i "1 s|^|import 'bootstrap'\nimport './assets/scss/main.css'\n|" $file

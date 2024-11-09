@@ -11,10 +11,10 @@ currentDir=$(basename "$PWD")
 case $currentDir in
   "UserScripts")
     # 2> /dev/null 避免輸出--no-restore的 bug報錯
-    cursor --no-restore . ~/UserConfig/zshrc/alias_script.zsh ~/UserConfig/zshrc/alias_cmd.zsh ~/UserConfig/zshrc/alias_git.zsh 2>/dev/null
+    cursor --no-restore . ~/UserConfig/zsh_config/alias_script.zsh ~/UserConfig/zsh_config/alias_cmd.zsh ~/UserConfig/zsh_config/alias_git.zsh 2>/dev/null
     ;;
   "UserConfig")
-    cursor --no-restore . ~/UserConfig/zshrc/alias_script.zsh ~/UserConfig/zshrc/alias_cmd.zsh ~/UserConfig/zshrc/alias_git.zsh 2>/dev/null
+    cursor --no-restore . ~/UserConfig/zsh_config/alias_script.zsh ~/UserConfig/zsh_config/alias_cmd.zsh ~/UserConfig/zsh_config/alias_git.zsh 2>/dev/null
     ;;
   *)
     cursor .

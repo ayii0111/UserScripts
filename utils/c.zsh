@@ -12,10 +12,10 @@ currentDir=$(basename "$PWD")
 case $currentDir in
   "UserScripts")
     # 2> /dev/null 避免輸出--no-restore的 bug報錯
-    code --no-restore . ~/UserConfig/zshrc/alias_script.zsh ~/UserConfig/zshrc/alias_cmd.zsh ~/UserConfig/zshrc/alias_git.zsh 2>/dev/null
+    code --no-restore . ~/UserConfig/zsh_config/alias_script.zsh ~/UserConfig/zsh_config/alias_cmd.zsh ~/UserConfig/zsh_config/alias_git.zsh 2>/dev/null
     ;;
   "UserConfig")
-    code --no-restore . ~/UserConfig/zshrc/alias_script.zsh ~/UserConfig/zshrc/alias_cmd.zsh ~/UserConfig/zshrc/alias_git.zsh 2>/dev/null
+    code --no-restore . ~/UserConfig/zsh_config/alias_script.zsh ~/UserConfig/zsh_config/alias_cmd.zsh ~/UserConfig/zsh_config/alias_git.zsh 2>/dev/null
     ;;
   *)
     code .

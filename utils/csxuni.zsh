@@ -5,10 +5,11 @@
 # 列出所有已安裝的擴展並逐個移除
 cursor --list-extensions | while read extension; do
   echo "正在移除擴展: $extension"
-  cursor --uninstall-extension "$extension"
+  # cursor --uninstall-extension "$extension"
+  code --uninstall-extension "$extension"
 done
 
-echo "cursor 所有擴展已成功移除！"
+echo "code 所有擴展已成功移除！"
 
 
 # 執行 Developer: Reload Window with Extensions Disabled 指令來刪除所有擴展的緩存

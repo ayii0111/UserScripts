@@ -8,6 +8,6 @@ BACKUP_DIR="$HOME/UserConfig/config/arc_config"
 mkdir -p "$BACKUP_DIR"
 
 # 複製所有配置檔案到備份目錄
-cp $ARC_CONFIG_DIR/* "$BACKUP_DIR/"
+/bin/cp $ARC_CONFIG_DIR/* "$BACKUP_DIR/"
 
 echo "已成功將 Arc 配置檔案備份到 $BACKUP_DIR"

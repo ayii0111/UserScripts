@@ -11,6 +11,6 @@ if [[ ! -d "$BACKUP_DIR" ]]; then
 fi
 
 # 將備份目錄中的檔案複製回原始配置路徑
-cp -R "$BACKUP_DIR/"* "$ARC_CONFIG_DIR/"
+/bin/cp -R "$BACKUP_DIR/"* "$ARC_CONFIG_DIR/"
 
 echo "已成功恢復 Arc 配置檔案到 $ARC_CONFIG_DIR"

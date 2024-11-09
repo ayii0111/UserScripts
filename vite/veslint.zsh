@@ -67,5 +67,5 @@ export default antfu()" >eslint.config.mjs
 }' >.vscode/settings.json
 
   # 覆蓋 eslint.config.mjs 檔的內容
-  cp $HOME/UserConfig/config/eslint.config.mjs eslint.config.mjs
+  cp "$HOME/UserConfig/config/eslint.config.mjs" "eslint.config.mjs"
 )

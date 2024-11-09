@@ -23,12 +23,12 @@ local scss_path="src/assets/scss"
 [[ ! -e $scss_path ]] && mkdir -p "$scss_path"
 
 # 把 bootstrap.scss 拷貝出來，改為 main.scss
-cp -r ./node_modules/bootstrap/scss/bootstrap.scss $scss_path/main.scss
-cp -r ./node_modules/bootstrap/scss/_variables.scss $scss_path
-cp -r ./node_modules/bootstrap/scss/_variables-dark.scss $scss_path
-cp -r ./node_modules/bootstrap/scss/_maps.scss $scss_path
-cp -r ./node_modules/bootstrap/scss/_utilities.scss $scss_path
-cp -r ./node_modules/bootstrap/scss/_reboot.scss $scss_path
+/bin/cp -r ./node_modules/bootstrap/scss/bootstrap.scss $scss_path/main.scss
+/bin/cp -r ./node_modules/bootstrap/scss/_variables.scss $scss_path
+/bin/cp -r ./node_modules/bootstrap/scss/_variables-dark.scss $scss_path
+/bin/cp -r ./node_modules/bootstrap/scss/_maps.scss $scss_path
+/bin/cp -r ./node_modules/bootstrap/scss/_utilities.scss $scss_path
+/bin/cp -r ./node_modules/bootstrap/scss/_reboot.scss $scss_path
 
 local node_path='../../../node_modules/bootstrap/scss'
 # 用 sed指令，去操作拷貝後的 main.scss檔，將其中各個檔案匯入的路徑，修改成正確的路徑

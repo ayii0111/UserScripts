@@ -17,7 +17,7 @@ for SOURCE_PATH in "${SOURCE_PATHS[@]}"; do
 
   if [[ -e "$BACKUP_PATH" ]]; then
     echo "正在還原 $BACKUP_PATH 到 $SOURCE_PATH"
-    cp -R "$BACKUP_PATH" "$SOURCE_PATH"
+    /bin/cp -R "$BACKUP_PATH" "$SOURCE_PATH"
   else
     echo "警告: 找不到備份文件 $BACKUP_PATH，跳過此項目"
   fi

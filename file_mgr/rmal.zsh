@@ -11,7 +11,7 @@ disablePWD $HOME $HOME/UserScripts $HOME/UserConfig || return 1
 # local env_arr=($(< $env_file))
 
 # 取得當前目錄名稱
-# local dir=${$(pwd):t}
+local dir=${$(pwd):t}
 
 # [[ $(pwd) == $HOME ]] && echo "不能刪除主目錄" && exit 1
 # if (( $env_arr[(Ie)$dir] )) {

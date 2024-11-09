@@ -17,7 +17,7 @@ mkdir -p "$BACKUP_DIR"
 for SOURCE_PATH in "${SOURCE_PATHS[@]}"; do
   if [[ -e "$SOURCE_PATH" ]]; then
     echo "正在備份 $SOURCE_PATH 到 $BACKUP_DIR"
-    cp "$SOURCE_PATH" "$BACKUP_DIR"
+    /bin/cp "$SOURCE_PATH" "$BACKUP_DIR"
   else
     echo "警告: 找不到 $SOURCE_PATH，跳過此項目"
   fi

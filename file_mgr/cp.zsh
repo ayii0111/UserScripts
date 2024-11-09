@@ -48,7 +48,7 @@
         echo "Error: 目標路徑已存在檔案，無法建立目錄" >&2 && return 1
       }
       mkdir -p $2 2>/dev/null
-      /bin/cp $1 $2 && return 0
+      /bin/cp -f $1 $2 && return 0
     fi
   fi
 
@@ -56,21 +56,21 @@
     if [[ ${1:t} == ${2:t} ]]; then
       [[ -d $2 ]] && {
         rm -rf $2
-        /bin/cp -f $1 $2 && return 0
+        /bin/cp -r $1 $2 && return 0
       }
       [[ -f $2 ]] && {
         echo "Error: 目標路徑已存在檔案，無法以目錄覆蓋" >&2 && return 1
       }
       local dir=${2:h}
       mkdir -p "$dir" 2>/dev/null
-      /bin/cp -f $1 $2 && return 0
+      /bin/cp -r $1 $2 && return 0
       # unset dir
     else
       [[ -f $2 ]] && {
         echo "Error: 目標路徑已存在檔案，無法建立目錄" >&2 && return 1
       }
       mkdir -p $2 2>/dev/null
-      /bin/cp $1 $2 && return 0
+      /bin/cp -r $1 $2 && return 0
     fi
   fi
   return 0

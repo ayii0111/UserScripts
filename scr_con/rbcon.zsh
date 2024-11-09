@@ -15,6 +15,6 @@ cp $basePath/vsCode/snippets "$HOME/Library/Application Support/Cursor/User/snip
 cp $basePath/config/Rime/bopomo_onion.schema.yaml "$HOME/Library/Rime/bopomo_onion.schema.yaml"
 cp $basePath/config/Rime/default.custom.yaml "$HOME/Library/Rime/default.custom.yaml"
 cp $basePath/config/Rime/cangjie5.userdb "$HOME/Library/Rime/cangjie5.userdb"
-cp $basePath/config/.warp $HOME/.warp
+# cp $basePath/config/.warp $HOME/.warp
 
 unset basePath

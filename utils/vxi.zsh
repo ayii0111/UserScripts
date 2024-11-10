@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# 別名 csxi: cursor 擴展安裝
+# 別名 vxi: vscode 擴展安裝
 
 # 讀取插件列表文件
 PLUGIN_FILE="$HOME/UserConfig/vsCode/extensionsList"

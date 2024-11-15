@@ -1,5 +1,6 @@
 #! /bin/zsh
 # 別名 filter: 用來篩選陣列中的元素
+# filter $arg1 $arg2 $arg3... "$callback"
 
 (
   local args=()
@@ -16,6 +17,7 @@
   args=(${args[1, -2]})
 
   eval "function cbFn() { $callback || return 1 }"
+  # eval "function cbFn() { eval \"$callback\" || return 1 }"
 
   for e in $args; do
     if ! (cbFn $e); then

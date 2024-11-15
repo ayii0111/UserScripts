@@ -10,3 +10,4 @@ typeset -g lastFailCmd
 source $HOME/UserScripts/zsh_hook/preec/recordLastCmd.zsh # 存取上次執行的指令
 source $HOME/UserScripts/zsh_hook/preec/onGitInit.zsh     # 自動初始化 git 環境
 source $HOME/UserScripts/zsh_hook/preec/onGitClone.zsh    # clone 後自動進入目錄
+source $HOME/UserScripts/zsh_hook/preec/loadNvmrc.zsh     # 切換目錄時，自動載入 .nvmrc 環境

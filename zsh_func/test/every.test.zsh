@@ -15,7 +15,7 @@ else
 fi
 
 echo "\n測試案例 3: 測試空字串檢查"
-if every "hello" "world" '[ ! -z $1 ]'; then
+if every "hello" "world" '[[ $1 ]]'; then
   echo " \e[32m✔\e[0m 案例 3 通過：所有字串都不為空"
 else
   echo " \e[31m✗\e[0m 案例 3 失敗：所有字串都不為空，應該要通過"

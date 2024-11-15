@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-# 別名 vxi: vscode 擴展安裝
+# 別名 vsxi: vscode 擴展安裝
 
 # 讀取插件列表文件
 PLUGIN_FILE="$HOME/UserConfig/vsCode/extensionsList"
@@ -19,4 +19,4 @@ while IFS= read -r extension || [[ -n "$extension" ]]; do
 done <"$PLUGIN_FILE"
 
 # echo "cursor 所有擴展已安裝完成！"
-echo "code 所有擴展已安裝完成！"
+echo "vsCode 所有擴展已安裝完成！"

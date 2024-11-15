@@ -1,5 +1,8 @@
 #! /bin/zsh
 # 別名 some: 檢查陣列內的元素是否至少有一個滿足回調的條件
+# some $arg1 $arg2 $arg3... "$callback"
+# some ($條件式1 $條件式2 $條件式3...) '$1'
+
 (
   local args=($*)
   local rsl=()

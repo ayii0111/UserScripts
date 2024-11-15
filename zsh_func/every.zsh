@@ -1,5 +1,7 @@
 #! /bin/zsh
 # 別名 every: 檢查陣列中的每一個元素是否都滿足回調
+# every $arg1 $arg2 $arg3... "$callback"
+# every ($條件式1 $條件式2 $條件式3...) '$1'
 (
   local args=($*)
   local rsl=()

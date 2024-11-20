@@ -17,11 +17,12 @@
   fi
 
   local importSnippet=$(echo "$1" | gsed ':a;N;$!ba;s/\n/\\n/g')
-  local injectSnippet=$(echo "$2" | gsed ':a;N;$!ba;s/\n/\\n/g')
-
   gsed -i "/createApp(App)/,\$! {/^$/d}
-0,/createApp(App)/{// s|^|$importSnippet\n\n\n|}
-/createApp(App)/,/app.mount('#app')/ {/^$/d}
+0,/createApp(App)/{// s|^|$importSnippet\n\n\n|}" $mainFile
+
+  [[ ! $2 ]] && return 0
+  local injectSnippet=$(echo "$2" | gsed ':a;N;$!ba;s/\n/\\n/g')
+  gsed -i "/createApp(App)/,/app.mount('#app')/ {/^$/d}
 0,/app.mount('#app')/{// s|^|$injectSnippet\n\n\n|}" $mainFile
 
   # unset mainFile importSnippet injectSnippet

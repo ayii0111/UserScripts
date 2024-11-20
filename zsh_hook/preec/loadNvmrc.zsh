@@ -1,4 +1,4 @@
-loadNvmrc() {
+_loadNvmrc() {
   local node_version="$(nvm version)"
   local nvmrc_path="$(nvm_find_nvmrc)"
   if [ -n "$nvmrc_path" ]; then
@@ -14,4 +14,4 @@ loadNvmrc() {
   fi
 }
 
-add-zsh-hook chpwd loadNvmrc
+add-zsh-hook chpwd _loadNvmrc

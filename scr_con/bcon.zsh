@@ -31,9 +31,7 @@ brew leaves >"$basePath/config/brew/brew-leaves"
 
 # config
 # cp $HOME/.tmux.conf $basePath/config
-# cp $HOME/.config/yazi $basePath/config/yazi
 # cp $HOME/.config/starship.toml $basePath/config
 # cp $HOME/.config/zellij/config.kdl $basePath/config/zellij/config.kdl
-# cp $HOME/Library/Containers/org.atelierInmu.inputmethod.vChewing/Data/Library/Application\ Support/vChewing $basePath/config/vChewing
 
 unset basePath

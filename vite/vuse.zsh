@@ -3,8 +3,8 @@
 # vuse 腳本
 # 可快速安裝並配置
 (
-  r=$(checkConfOptExist "  '@vueuse/core'" $file) || return 1
-  [[ $r == 設定選項已存在! ]] && echo $r && return 0
+  result=$(checkConfOptExist "  '@vueuse/core'" $file) || return 1
+  [[ $result == 'exist' ]] && echo "設定選項已存在!" && return 0 # 若是設定選項已經存在，則會直接中斷退出 (對外不報錯)
 
   npm i @vueuse/core
 

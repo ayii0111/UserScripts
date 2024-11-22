@@ -3,7 +3,8 @@
 # vuse 腳本
 # 可快速安裝並配置
 (
-  checkNoInst @vueuse/core || return 1
+  r=$(checkConfOptExist "  '@vueuse/core'" $file) || return 1
+  [[ $r == 設定選項已存在! ]] && echo $r && return 0
 
   npm i @vueuse/core
 
@@ -14,5 +15,5 @@
   # 若有 bug 再去找 notion 筆記記錄的配置
   gsed -i "s|// '@vueuse/core',|'@vueuse/core',|" $file
 
-  unset file
+  # unset file
 )

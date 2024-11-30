@@ -5,7 +5,7 @@
 # 可以直接刪除當前所在目錄，並退回到父目錄中
 # 支援在 conda 專案目錄的刪除時，會先移除專案環境納管
 
-disablePWD $HOME $HOME/UserScripts $HOME/UserConfig || return 1
+disablePWD $HOME $HOME/UserScripts $HOME/UserConfig $HOME/Projects || return 1
 
 # local env_file="$HOME/UserConfig/conda_env"
 # local env_arr=($(< $env_file))

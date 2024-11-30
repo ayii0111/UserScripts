@@ -19,13 +19,14 @@ case $currentDir in
     ;;
   *)
     code .
+    # 執行 npm run dev 可以協助 autoimport 產生相關類別，以處理掉 eslint 報錯
     if [[ -f "vite.config.js" || -f "vite.config.ts" ]]; then
 
       # 背景執行 相當於 npm run dev 的指令效果
       npx vite --no-open >/dev/null &
 
       # 等待兩秒來啟動相關配置後，在將背景執行的 npr dev 結束
-      sleep 2
+      sleep 3
       kill -9 %+
     fi
     ;;

@@ -52,6 +52,10 @@ auto_import1=$(echo "$auto_import1" | gsed ':a;N;$!ba;s/\n/\\n/g')
 
 gsed -i "/vue()/ s|vue()|vue(),$auto_import1|" $file
 
+file=$(matchFile tsconfig.app) || {
+  echo "在 chrome 擴展環境中，設定配置...(下一個配置並非適用於 chrome 擴展，匹配不到檔案是正常的)"
+  gsed -i '/"include":/,$ { 0,/]/{// s|]|, "./auto-imports.d.ts"]|} }' tsconfig.json
+}
 # tsconfig.app.json 檔添加項目
 gsed -i '/include/,$ { 0,/]/{// s|]|, "./auto-imports.d.ts"]|} }' ./tsconfig.app.json
 

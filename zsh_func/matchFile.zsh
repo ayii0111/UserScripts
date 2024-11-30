@@ -10,10 +10,10 @@
   filePaths=($1.*)
 
   # 若匹配不到檔案，則報錯
-  [[ $filePaths == $1.\* ]] && echo "Error: 匹配不到檔案" >&2 && return 1
+  [[ $filePaths == $1.\* ]] && echo "Error matchFile函式: 匹配不到檔案" >&2 && return 1
 
   # 若匹配到 2 個以上的檔案，則報錯
-  (($#filePaths > 1)) && echo " $failMark 匹配到 2 個以上的檔案: $filePaths" >&2 && return 1
+  (($#filePaths > 1)) && echo "Error matchFile函式: $failMark 匹配到 2 個以上的檔案: $filePaths" >&2 && return 1
 
   echo "$filePaths"
 )

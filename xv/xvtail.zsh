@@ -1,7 +1,4 @@
 #! /bin/zsh
-
-# 別名 vtail
-# tailwind 快速安裝配置
 (
   # checkNoInst tailwindcss || return 1
   npm i -D tailwindcss postcss autoprefixer
@@ -31,20 +28,17 @@ EOF
 
   local file=""
   [[ ! -f src/assets/tw.css ]] && {
-    mkdir -p src/assets
-    cat <<EOF >src/assets/tw.css
+
+    mkdir -p public/assets
+    cat <<EOF >public/assets/tw.css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 EOF
-    file=$(matchFile src/main) || return 1
 
-    locate='createApp(App)'
-    insertSnippet="import './assets/tw.css'"
-    gsed -i "/^$/ d" $file
-    gsed -i "
-0,/$locate/ {// s|^|$insertSnippet\n\n\n|}
-" $file
+    local twInsert="import '../public/assets/tw.css'"
+    gsed -i "/createApp(Popup)/,\$! {/^$/d}
+0,/createApp(Popup)/{// s|^|$twInsert\n\n\n|}" src/popup.ts
   }
 
   file=$(matchFile vite.config) || return 1
@@ -73,7 +67,6 @@ import autoprefixer from 'autoprefixer'"
 " $file
 
   local button='  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Button</button><br><br>'
-  gsed -i "/  <div>/ s|  <div>|  <div>\n$button|" src/views/HomeView.vue
+  gsed -i "/  <div>/ s|  <div>|  <div>\n$button|" src/pages/Home.vue
 
-  unset locate insertSnippet button
 )

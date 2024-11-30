@@ -11,6 +11,7 @@
 
   # 刪除 TheWelcome 元件
   gsed -i '/TheWelcome/d' ./src/views/HomeView.vue
+  gsed -i 's|main|div|' ./src/views/HomeView.vue
 
   # 刪除 main.css檔以及刪除其匯入
   file=$(matchFile ./src/main) || return 1
@@ -20,7 +21,5 @@
   # 刪除 logo.svg檔
   rm ./src/assets/{base.css,logo.svg}
 
-  echo "刪除 App.vue 中的 <style> 內容，以及 <header> 標籤、<HelloWorld>元件
-刪除 HomeView.vue 中的 <TheWelcome>元件
-刪除 assets 中的 base.css、logo.svg、main.css 檔"
+  echo "清空預設樣式、刪除一些元件..."
 )

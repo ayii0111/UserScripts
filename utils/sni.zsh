@@ -13,4 +13,5 @@ if [[ ! $1 ]]; then
   return 0
 fi
 
-cursor $HOME/Library/Application\ Support/Cursor/User/snippets/$1
+# cursor $HOME/Library/Application\ Support/Cursor/User/snippets/$1
+code $HOME/Library/Application\ Support/Cursor/User/snippets/$1
